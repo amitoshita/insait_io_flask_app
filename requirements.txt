@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+openai==0.28.0
+psycopg2-binary
+pytest
+gunicorn
+python-dotenv
+pytest-flask
+pytest-mock

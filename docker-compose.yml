@@ -1,0 +1,24 @@
+
+services:
+  web:
+    build: .
+    command:
+        gunicorn --bind 0.0.0.0:5000 "app:create_app()"
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:tima144@db:5432/flask_app
+      - OPENAI_API_KEY=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
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tima144
+      POSTGRES_DB: flask_app
+    ports:
+      - "5432:5432"
